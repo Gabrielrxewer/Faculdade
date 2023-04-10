@@ -42,17 +42,23 @@ print("Bem vindo ao programa de logística do Gabriel Roewer Pilger, Informe as 
 volume = dimensoesObjeto()
 
 # Define os valores da tabela de dimensões
-if volume < 1000:
-    valor_dimensoes = 10
-elif volume < 10000:
-    valor_dimensoes = 20
-elif volume < 30000:
-    valor_dimensoes = 30
-elif volume < 100000:
-    valor_dimensoes = 50
-else:
-    print("O objeto não pode ter um volume maior ou igual a 100000 cm³.")
-    exit()
+while True:
+    if volume < 1000:
+        valor_dimensoes = 10
+        break
+    elif volume < 10000:
+        valor_dimensoes = 20
+        break
+    elif volume < 30000:
+        valor_dimensoes = 30
+        break
+    elif volume < 100000:
+        valor_dimensoes = 50
+        break
+    else:
+        print("O objeto não pode ter um volume maior ou igual a 100000 cm³.")
+        print("Digite novamente as dimensões do objeto:")
+        volume = dimensoesObjeto()
 
 # Pergunta o peso do objeto e verifica se o usuário deu um peso válido
 while True:
@@ -62,7 +68,7 @@ while True:
             raise ValueError
         break
     except ValueError:
-        print("Valor inválido. Digite um número positivo menor que 30 para o peso.")
+        print("Valor inválido. Digite um peso válido e menor que 30kg.")
 
 # Define os valores da tabela de peso
 if peso <= 0.1:
@@ -75,7 +81,6 @@ elif peso < 30:
     multiplicador_peso = 3
 else:
     print("O objeto não pode ter um peso maior ou igual a 30 kg.")
-    exit()
 
 # Pergunta a rota do objeto e verifica se o usuário deu uma rota válida
 while True:
